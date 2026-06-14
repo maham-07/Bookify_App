@@ -287,7 +287,7 @@ function renderDealBanners() {
                     <p>Discounted Price: $${Number(deal.discountedPrice || 0).toFixed(2)}</p>
                     <small>${formatDealDate(deal.fromDate)} - ${formatDealDate(deal.toDate)}</small>
                 </div>
-                <img src="${deal.image || 'images/logo.png'}" alt="${deal.productName || 'Deal'}" class="deal-mini-logo" onerror="this.src='images/logo.png'">
+                <img src="${deal.image || 'read.jpg'}" alt="${deal.productName || 'Deal'}" class="deal-mini-logo" onerror="this.src='read.jpg'">
             `;
             const title = dealDiv.querySelector('h4');
             if (title) {
@@ -330,7 +330,7 @@ function openDealModal(deal) {
     document.getElementById('dealModalColor').textContent = deal.color || '-';
     document.getElementById('dealModalSize').textContent = deal.size || '-';
     document.getElementById('dealModalRange').textContent = `${formatDealDate(deal.fromDate)} to ${formatDealDate(deal.toDate)}`;
-    document.getElementById('dealModalImage').src = deal.image || 'images/logo.png';
+    document.getElementById('dealModalImage').src = deal.image || 'read.jpg';
     selectedDealForCheckout = deal;
 
     modal.classList.remove('hidden');
@@ -351,7 +351,7 @@ function onDealBuyNow() {
         bookId: `deal-${selectedDealForCheckout.id || Date.now()}`,
         title: selectedDealForCheckout.productName || 'Special Deal',
         price: discountedPrice,
-        image: selectedDealForCheckout.image || 'images/logo.png',
+        image: selectedDealForCheckout.image || 'read.jpg',
         qty: 1
     }];
     updateCartBadge();
@@ -400,7 +400,7 @@ function renderBooksGrid(books) {
         
         card.innerHTML = `
             <div class="book-img-box">
-                <img src="${book.image}" alt="${book.title}" onerror="this.src='images/logo.png'">
+                <img src="${book.image}" alt="${book.title}" onerror="this.src='read.jpg'">
             </div>
             <div class="book-info">
                 <h4>${book.title}</h4>
@@ -464,7 +464,7 @@ function renderCart() {
         const row = document.createElement('div');
         row.className = 'cart-item-row';
         row.innerHTML = `
-            <img src="${item.image}" alt="${item.title}" onerror="this.src='images/logo.png'">
+            <img src="${item.image}" alt="${item.title}" onerror="this.src='read.jpg'">
             <div class="item-details">
                 <h4>${item.title}</h4>
                 <p>$${item.price.toFixed(2)} each</p>
