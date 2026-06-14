@@ -1,0 +1,483 @@
+{
+  "books": [
+    {
+      "id": "fic-1",
+      "title": "A Little Life",
+      "author": "Hanya Yanagihara",
+      "category": "Fiction",
+      "price": 18.5,
+      "stock": 15,
+      "rating": 4,
+      "image": "images/Fiction/A Little Life.jpg"
+    },
+    {
+      "id": "fic-2",
+      "title": "A Man Called Ove",
+      "author": "Fredrik Backman",
+      "category": "Fiction",
+      "price": 12.99,
+      "stock": 8,
+      "rating": 5,
+      "image": "images/Fiction/A Man Called Ove.jpg"
+    },
+    {
+      "id": "fic-3",
+      "title": "Anne Of Green Gables",
+      "author": "L.M. Montgomery",
+      "category": "Fiction",
+      "price": 10.99,
+      "stock": 20,
+      "rating": 5,
+      "image": "images/Fiction/Anne Of Green Gables.jpg"
+    },
+    {
+      "id": "fic-4",
+      "title": "Fearless",
+      "author": "Francine Pascal",
+      "category": "Fiction",
+      "price": 14,
+      "stock": 12,
+      "rating": 4,
+      "image": "images/Fiction/Fearless.jpg"
+    },
+    {
+      "id": "fic-5",
+      "title": "Powerless",
+      "author": "Lauren Roberts",
+      "category": "Fiction",
+      "price": 16.99,
+      "stock": 25,
+      "rating": 4,
+      "image": "images/Fiction/Powerless.jpg"
+    },
+    {
+      "id": "hp-1",
+      "title": "Harry Potter And The Philosopher's Stone",
+      "author": "J.K. Rowling",
+      "category": "Harry Potter",
+      "price": 20,
+      "stock": 30,
+      "rating": 5,
+      "image": "images/Harry Potter/Harry Potter And The Philosopher's Stone.jpg"
+    },
+    {
+      "id": "hp-2",
+      "title": "Harry Potter And The Chamber Of Secrets",
+      "author": "J.K. Rowling",
+      "category": "Harry Potter",
+      "price": 20,
+      "stock": 25,
+      "rating": 5,
+      "image": "images/Harry Potter/Harry Potter And The Chamber Of Secrets.jpg"
+    },
+    {
+      "id": "hp-3",
+      "title": "Harry Potter and the Prisoner of Azkaban",
+      "author": "J.K. Rowling",
+      "category": "Harry Potter",
+      "price": 20,
+      "stock": 22,
+      "rating": 5,
+      "image": "images/Harry Potter/Harry Potter and the Prisoner of Azkaban.jpg"
+    },
+    {
+      "id": "hp-4",
+      "title": "Harry Potter And The Goblet Of Fire",
+      "author": "J.K. Rowling",
+      "category": "Harry Potter",
+      "price": 22,
+      "stock": 18,
+      "rating": 5,
+      "image": "images/Harry Potter/Harry Potter And The Goblet Of Fire.jpg"
+    },
+    {
+      "id": "hp-5",
+      "title": "Harry Potter And The Order Of The Phoenix",
+      "author": "J.K. Rowling",
+      "category": "Harry Potter",
+      "price": 24,
+      "stock": 15,
+      "rating": 4,
+      "image": "images/Harry Potter/Harry Potter And The Order Of The Phoenix.jpg"
+    },
+    {
+      "id": "hp-6",
+      "title": "Harry Potter And The Half-blood Prince",
+      "author": "J.K. Rowling",
+      "category": "Harry Potter",
+      "price": 24,
+      "stock": 14,
+      "rating": 5,
+      "image": "images/Harry Potter/Harry Potter And The Half-blood Prince.jpg"
+    },
+    {
+      "id": "hp-7",
+      "title": "Harry Potter And The Deathly Hallows",
+      "author": "J.K. Rowling",
+      "category": "Harry Potter",
+      "price": 26,
+      "stock": 20,
+      "rating": 5,
+      "image": "images/Harry Potter/Harry Potter And The Deathly Hallows.jpg"
+    },
+    {
+      "id": "hp-8",
+      "title": "Harry Potter And The Cursed Child",
+      "author": "J.K. Rowling",
+      "category": "Harry Potter",
+      "price": 18,
+      "stock": 10,
+      "rating": 3,
+      "image": "images/Harry Potter/Harry Potter And The Cursed Child.jpg"
+    },
+    {
+      "id": "hist-1",
+      "title": "A Brief History Of Time",
+      "author": "Stephen Hawking",
+      "category": "History",
+      "price": 15.5,
+      "stock": 30,
+      "rating": 5,
+      "image": "images/History/A Brief History Of Time.jpg"
+    },
+    {
+      "id": "hist-2",
+      "title": "War And Peace",
+      "author": "Leo Tolstoy",
+      "category": "History",
+      "price": 25,
+      "stock": 5,
+      "rating": 4,
+      "image": "images/History/War And Peace.jpg"
+    },
+    {
+      "id": "isl-1",
+      "title": "The Genius of Islam",
+      "author": "Bryn Barnard",
+      "category": "Islamic",
+      "price": 16,
+      "stock": 15,
+      "rating": 5,
+      "image": "images/Islamic/The Genius of Islam.jpg"
+    },
+    {
+      "id": "kids-1",
+      "title": "Monkey Puzzle",
+      "author": "Julia Donaldson",
+      "category": "Kids Special",
+      "price": 8.99,
+      "stock": 40,
+      "rating": 5,
+      "image": "images/Kids Special/Monkey Puzzle.jpg"
+    },
+    {
+      "id": "kids-2",
+      "title": "Tabby McTat",
+      "author": "Julia Donaldson",
+      "category": "Kids Special",
+      "price": 8.99,
+      "stock": 35,
+      "rating": 4,
+      "image": "images/Kids Special/Tabby McTat.jpg"
+    },
+    {
+      "id": "kids-3",
+      "title": "The Gruffalo",
+      "author": "Julia Donaldson",
+      "category": "Kids Special",
+      "price": 9.99,
+      "stock": 50,
+      "rating": 5,
+      "image": "images/Kids Special/The Gruffalo.jpg"
+    },
+    {
+      "id": "kids-4",
+      "title": "The Snail And The Whale",
+      "author": "Julia Donaldson",
+      "category": "Kids Special",
+      "price": 8.5,
+      "stock": 30,
+      "rating": 5,
+      "image": "images/Kids Special/The Snail And The Whale.jpg"
+    },
+    {
+      "id": "kids-5",
+      "title": "The Very Hungry Caterpillar",
+      "author": "Eric Carle",
+      "category": "Kids Special",
+      "price": 7.99,
+      "stock": 45,
+      "rating": 5,
+      "image": "images/Kids Special/The Very Hungry Caterpillar.jpg"
+    },
+    {
+      "id": "mys-1",
+      "title": "The Thirty-One Doors",
+      "author": "Haleigh Lovell",
+      "category": "Mystery",
+      "price": 14.5,
+      "stock": 12,
+      "rating": 4,
+      "image": "images/Mystery/The Thirty-One Doors.jpg"
+    },
+    {
+      "id": "nf-1",
+      "title": "Atomic Habits",
+      "author": "James Clear",
+      "category": "Non Fiction",
+      "price": 19.99,
+      "stock": 60,
+      "rating": 5,
+      "image": "images/Non Fiction/Atomic Habits.jpg"
+    },
+    {
+      "id": "nf-2",
+      "title": "Big Magic",
+      "author": "Elizabeth Gilbert",
+      "category": "Non Fiction",
+      "price": 16.99,
+      "stock": 25,
+      "rating": 4,
+      "image": "images/Non Fiction/Big Magic.jpg"
+    },
+    {
+      "id": "nf-3",
+      "title": "Ikigai: The Japanese Secret to a Long and Happy Life",
+      "author": "Hector Garcia",
+      "category": "Non Fiction",
+      "price": 15.5,
+      "stock": 40,
+      "rating": 5,
+      "image": "images/Non Fiction/Ikigai_ The Japanese Secret to a Long and Happy Life.jpg"
+    },
+    {
+      "id": "nf-4",
+      "title": "The Little Book Of Hygge",
+      "author": "Meik Wiking",
+      "category": "Non Fiction",
+      "price": 14.99,
+      "stock": 20,
+      "rating": 4,
+      "image": "images/Non Fiction/The Little Book Of Hygge.jpg"
+    },
+    {
+      "id": "nf-5",
+      "title": "The Little Book Of Lykke",
+      "author": "Meik Wiking",
+      "category": "Non Fiction",
+      "price": 14.99,
+      "stock": 18,
+      "rating": 4,
+      "image": "images/Non Fiction/The Little Book Of Lykke.jpg"
+    },
+    {
+      "id": "bio-1",
+      "title": "The Story Of My Life",
+      "author": "Helen Keller",
+      "price": 14.99,
+      "stock": 10,
+      "category": "Biography",
+      "image": "images/Biography/The Story Of My Life.jpg",
+      "rating": 5
+    }
+  ],
+  "users": [
+    {
+      "name": "Nimra",
+      "email": "i7245032@gmail.com",
+      "password": "12345",
+      "id": "TGsUQ49GTUk"
+    },
+    {
+      "name": "Nimra",
+      "email": "i234578@gmail.com",
+      "password": "12345",
+      "id": "HvoDkMSOQlo"
+    },
+    {
+      "name": "Imama",
+      "email": "imama@gmail.com",
+      "password": "12345",
+      "id": "zAI82HpeNGE"
+    },
+    {
+      "name": "Maham",
+      "email": "maham@gmail.com",
+      "password": "1234",
+      "id": "b-1KjWICGp4"
+    },
+    {
+      "name": "Maham",
+      "email": "musfirahashraf382@gmail.com",
+      "password": "123456",
+      "id": "aLLFaXj8JI8"
+    },
+    {
+      "name": "Maham",
+      "email": "mahamashraf739@gmail.com",
+      "password": "123456",
+      "id": "TZy_z8ynV8k"
+    }
+  ],
+  "orders": [
+    {
+      "customerName": "Nimra",
+      "customerEmail": "i7245032@gmail.com",
+      "address": "lahore",
+      "city": "lahore111",
+      "postalCode": "1111",
+      "paymentMethod": "COD",
+      "items": [
+        {
+          "bookId": "bio-1",
+          "title": "The Story Of My Life",
+          "price": 14.99,
+          "image": "images/Biography/The Story Of My Life.jpg",
+          "qty": 1
+        }
+      ],
+      "totalCost": 19.990000000000002,
+      "status": "Confirmed",
+      "id": "QApAutD23Ag"
+    },
+    {
+      "customerName": "Maham",
+      "customerEmail": "musfirahashraf382@gmail.com",
+      "address": "Street no#4, House no#45, Imtiaz Colony, Haroon Abad Near New Nadra Office",
+      "city": "Haroon Abad",
+      "postalCode": "63100",
+      "paymentMethod": "COD",
+      "items": [
+        {
+          "bookId": "bio-1",
+          "title": "The Story Of My Life",
+          "price": 14.99,
+          "image": "images/Biography/The Story Of My Life.jpg",
+          "qty": 1
+        },
+        {
+          "bookId": "fic-1",
+          "title": "A Little Life",
+          "price": 18.5,
+          "image": "images/Fiction/A Little Life.jpg",
+          "qty": 1
+        }
+      ],
+      "totalCost": 38.49,
+      "status": "Confirmed",
+      "id": "6ECuZaHV4CU"
+    },
+    {
+      "customerName": "Maham",
+      "customerEmail": "musfirahashraf382@gmail.com",
+      "address": "Street no#4, House no#45, Imtiaz Colony, Haroon Abad Near New Nadra Office",
+      "city": "Haroon Abad",
+      "postalCode": "63100",
+      "paymentMethod": "COD",
+      "items": [
+        {
+          "bookId": "hp-7",
+          "title": "Harry Potter And The Deathly Hallows",
+          "price": 26,
+          "image": "images/Harry Potter/Harry Potter And The Deathly Hallows.jpg",
+          "qty": 1
+        },
+        {
+          "bookId": "hist-2",
+          "title": "War And Peace",
+          "price": 25,
+          "image": "images/History/War And Peace.jpg",
+          "qty": 1
+        }
+      ],
+      "totalCost": 56,
+      "status": "Confirmed",
+      "id": "BHWuip312Io"
+    },
+    {
+      "customerName": "Maham",
+      "customerEmail": "mahamashraf739@gmail.com",
+      "address": "Islamia University Bahawalpur, Baghdad Campus Girls Hostel Haleema Hall",
+      "city": "Bahawalpur",
+      "postalCode": "63100",
+      "paymentMethod": "Debit Card",
+      "items": [
+        {
+          "bookId": "fic-4",
+          "title": "Fearless",
+          "price": 14,
+          "image": "images/Fiction/Fearless.jpg",
+          "qty": 1
+        },
+        {
+          "bookId": "hp-2",
+          "title": "Harry Potter And The Chamber Of Secrets",
+          "price": 20,
+          "image": "images/Harry Potter/Harry Potter And The Chamber Of Secrets.jpg",
+          "qty": 1
+        }
+      ],
+      "totalCost": 39,
+      "status": "Pending",
+      "id": "16YvcWDZ0G4"
+    }
+  ],
+  "requests": [
+    {
+      "type": "Missing Book",
+      "userName": "Maham",
+      "userEmail": "musfirahashraf382@gmail.com",
+      "bookName": "The Silent Patient",
+      "authorName": "fff",
+      "status": "Accepted",
+      "id": "VefRGuMIsBk"
+    },
+    {
+      "type": "Wrong Book",
+      "userName": "Maham",
+      "userEmail": "musfirahashraf382@gmail.com",
+      "bookName": "The Silent Patient",
+      "authorName": "asddffg",
+      "status": "Confirmed",
+      "id": "VuJAgZDy1uU"
+    },
+    {
+      "type": "Delivery Issue",
+      "userName": "Maham",
+      "userEmail": "mahamashraf739@gmail.com",
+      "status": "Pending",
+      "createdAt": "2026-06-13T20:09:45.472Z",
+      "orderNumber": "1001",
+      "bookName": "Monkey Puzzle",
+      "deliveryReason": "Damaged package",
+      "deliveryIssue": "Book is torn into two pieces.",
+      "id": "SvRwp2ahwIA"
+    }
+  ],
+  "deals": [
+    {
+      "productName": "atomic habits",
+      "discountedPrice": 20,
+      "stock": 20,
+      "color": "blue",
+      "size": "standard",
+      "image": "images/Non Fiction/Atomic Habits.jpg",
+      "fromDate": "2026-06-02",
+      "toDate": "2026-06-04",
+      "id": "nzCgmOXJNNE",
+      "isActive": false
+    },
+    {
+      "productName": "A Brief History Of Time",
+      "discountedPrice": 10.55,
+      "stock": 5,
+      "color": "Original",
+      "size": "Standard",
+      "image": "images/History/A Brief History Of Time.jpg",
+      "fromDate": "2026-06-14",
+      "toDate": "2026-06-20",
+      "id": "6jqQ8UnNcks"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

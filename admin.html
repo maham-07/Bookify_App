@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookify Portal - Control Dashboard</title>
+    <link rel="stylesheet" href="style.css?v=image-fit-fix">
+</head>
+<body class="admin-body">
+    <nav class="navbar admin-navbar">
+        <div class="nav-container">
+            <span class="logo">🛠️ Bookify Central Control Panel</span>
+            <div class="nav-links" id="adminNavLinks" style="display:none;">
+                <a href="#" id="toStats" class="active">Stats Overview</a>
+                <a href="#" id="toInventory">Inventory CRUD</a>
+                <a href="#" id="toOrders">Orders System</a>
+                <a href="#" id="toRequests">Forms Desk</a>
+                <a href="#" id="adminLogout">Exit System</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section id="adminLoginSection" class="admin-view">
+            <div class="auth-box centralize-box">
+                <h2>Protected Administrative System</h2>
+                <form id="adminLoginForm" novalidate>
+                    <div class="form-group">
+                        <label for="admEmail">Root Username/Email</label>
+                        <input type="email" id="admEmail" required placeholder="admin@bookify.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="admPass">Security Key Password</label>
+                        <input type="password" id="admPass" required placeholder="••••••••">
+                    </div>
+                    <div id="admError" class="error-banner hidden">Unauthorized credential entries match rejected.</div>
+                    <button type="submit" class="btn btn-danger width-100">Unlock Application Console</button>
+                </form>
+            </div>
+        </section>
+
+        <div id="adminMainDashboardView" class="hidden">
+            
+            <section id="adminStatsView" class="admin-view">
+                <h2>Summary Metrics & Analytics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><h3>Total Registered Titles</h3><p id="statBooks">0</p></div>
+                    <div class="stat-card"><h3>Orders Processed</h3><p id="statOrders">0</p></div>
+                    <div class="stat-card"><h3>Active Issues/Requests</h3><p id="statRequests">0</p></div>
+                </div>
+
+                <div class="deals-management-block mt-40">
+                    <h2>Launch Special Deals & Promotional Pricing</h2>
+                    <form id="dealCreationForm" novalidate>
+                        <div class="form-group">
+                            <label for="dealName">Deal Name</label>
+                            <input type="text" id="dealName" placeholder="e.g. Summer Reading Offer" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="dealProductName">Product Name</label>
+                                <input type="text" id="dealProductName" placeholder="e.g. Atomic Habits" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dealDiscountedPrice">Discounted Price ($)</label>
+                                <input type="number" id="dealDiscountedPrice" min="0" step="0.01" placeholder="e.g. 12.99" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="dealStock">Stock</label>
+                                <input type="number" id="dealStock" min="0" step="1" placeholder="e.g. 30" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dealColor">Color</label>
+                                <input type="text" id="dealColor" placeholder="e.g. Blue" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="dealSize">Size</label>
+                                <input type="text" id="dealSize" placeholder="e.g. Standard / Hardcover" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dealImage">Image Path / URL</label>
+                                <input type="text" id="dealImage" placeholder="images/Fiction/book.jpg" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="dealFromDate">From Date</label>
+                                <input type="date" id="dealFromDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dealToDate">To Date</label>
+                                <input type="date" id="dealToDate" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success">Publish Promotional Deal to Users</button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="adminInventoryView" class="admin-view hidden">
+                <div class="split-layout">
+                    <div class="form-card">
+                        <h3 id="formActionTitle">Add New System Book</h3>
+                        <form id="bookForm" novalidate>
+                            <input type="hidden" id="editBookId">
+                            <div class="form-group">
+                                <label for="bookUID">Book ID (Unique String)</label>
+                                <input type="text" id="bookUID" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookTitle">Book Name</label>
+                                <input type="text" id="bookTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookAuthor">Author Name</label>
+                                <input type="text" id="bookAuthor" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="bookPrice">Retail Price ($)</label>
+                                    <input type="number" id="bookPrice" step="0.01" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bookStock">Stock Quantity</label>
+                                    <input type="number" id="bookStock" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookCategory">Shelf Category Selection</label>
+                                <select id="bookCategory">
+                                    <option value="Kids Special">Kids Special</option>
+                                    <option value="Fiction">Fiction</option>
+                                    <option value="Non Fiction">Non Fiction</option>
+                                    <option value="Biography">Biography</option>
+                                    <option value="Harry Potter">Harry Potter</option>
+                                    <option value="History">History</option>
+                                    <option value="Islamic">Islamic</option>
+                                    <option value="Mystery">Mystery</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookImgPath">Image Resource Relative Path</label>
+                                <input type="text" id="bookImgPath" placeholder="images/Fiction/FileName.jpg" required>
+                            </div>
+                            <button type="submit" id="saveFormBtn" class="btn btn-primary width-100">Commit to Inventory Database</button>
+                            <button type="button" id="cancelEditBtn" class="btn btn-secondary width-100 hidden mt-10">Cancel Editing Routine</button>
+                        </form>
+                    </div>
+
+                    <div class="table-card">
+                        <h3>Active Books Database</h3>
+                        <div class="responsive-table-scroller">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Cover</th>
+                                        <th>Title</th>
+                                        <th>Author</th>
+                                        <th>Stock</th>
+                                        <th>Price</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="inventoryTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="adminOrdersView" class="admin-view hidden">
+                <h2>User System Placed Orders Desk</h2>
+                <div class="responsive-table-scroller">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Client</th>
+                                <th>Address Details</th>
+                                <th>Items Ordered</th>
+                                <th>Total Bill</th>
+                                <th>Status</th>
+                                <th>Management Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="adminRequestsView" class="admin-view hidden">
+                <h2>Client Forms Desk (Requests & Complaints Management Hub)</h2>
+                <div class="responsive-table-scroller">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Requester Profile</th>
+                                <th>Issues & Book Info Description</th>
+                                <th>Current Status</th>
+                                <th>Change Operational State</th>
+                            </tr>
+                        </thead>
+                        <tbody id="requestsTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="admin.js"></script>
+</body>
+</html>

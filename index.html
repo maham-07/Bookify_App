@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookify - User Panel</title>
+    <link rel="stylesheet" href="style.css?v=image-fit-fix">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <span class="logo">📚 Bookify</span>
+            <div class="nav-links" id="navLinks">
+                <a href="#" id="navHome" class="active">Home</a>
+                <a href="#" id="navBrowse">Browse Books</a>
+                <a href="#" id="navCart" style="display:none;">Cart (<span id="cartCount">0</span>)</a>
+                <a href="#" id="navRequests" style="display:none;">Help & Requests</a>
+                <a href="#" id="logoutBtn" style="display:none;">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section id="landingSection" class="view-section">
+            <div class="deals-banner-section front-deals-banner" id="landingDealsContainer"></div>
+            <div class="welcome-box">
+                <h1>Welcome to Bookify</h1>
+                <p class="intro-text">Your one-stop destination for the best reads. Dive into our massive collection of books!</p>
+                <div class="safety-measures">
+                    <h3>🛡️ Our Safety Measures</h3>
+                    <ul>
+                        <li>100% Secure & Encrypted Payments</li>
+                        <li>Safe, Contactless Doorstep Delivery</li>
+                        <li>Fully Sanitized Packaging</li>
+                    </ul>
+                </div>
+                <div class="welcome-img-container">
+                    <img src="frontimage.jpg" alt="Modern bookstore shelves" class="welcome-banner" onerror="this.src='images/logo.png'">
+                </div>
+                <section class="featured-collections">
+                    <h3>Featured Collections</h3>
+                    <div class="collection-grid">
+                        <article class="collection-card">
+                            <img src="read.jpg" alt="Featured books collection">
+                            <div class="collection-overlay">
+                                <h4>Featured Reads</h4>
+                                <p>Handpicked books for every mood.</p>
+                            </div>
+                        </article>
+                        <article class="collection-card">
+                            <img src="frontimage.jpg" alt="Professional book collection">
+                            <div class="collection-overlay">
+                                <h4>Learn & Grow</h4>
+                                <p>Self-help and non-fiction favorites.</p>
+                            </div>
+                        </article>
+                        <article class="collection-card">
+                            <img src="kids.jpg" alt="Kids reading books">
+                            <div class="collection-overlay">
+                                <h4>Kids Corner</h4>
+                                <p>Colorful stories for young readers.</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="reading-vibes">
+                    <div class="vibe-content">
+                        <h3>Create Your Perfect Reading Space</h3>
+                        <p>From cozy evening reads to weekend deep-dives, Bookify helps you discover books that match your style.</p>
+                    </div>
+                    <div class="vibe-images">
+                        <img src="read.jpg" alt="Reading promotion">
+                        <img src="frontimage.jpg" alt="Book collection shelves">
+                    </div>
+                </section>
+                <div class="auth-prompt-buttons">
+                    <button id="showSignupBtn" class="btn btn-primary">Sign Up</button>
+                    <button id="showLoginBtn" class="btn btn-secondary">Log In</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="authSection" class="view-section hidden">
+            <div class="auth-container">
+                <div id="loginBox" class="auth-box hidden">
+                    <h2>Log In to Bookify</h2>
+                    <form id="loginForm" novalidate>
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" id="loginEmail" required>
+                            <span class="error-msg" id="loginEmailError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" required>
+                            <span class="error-msg" id="loginPasswordError"></span>
+                        </div>
+                        <div id="loginFormGeneralError" class="error-banner hidden"></div>
+                        <button type="submit" class="btn btn-primary width-100">Login</button>
+                    </form>
+                </div>
+
+                <div id="signupBox" class="auth-box hidden">
+                    <h2>Create an Account</h2>
+                    <form id="signupForm" novalidate>
+                        <div class="form-group">
+                            <label for="signupName">Full Name</label>
+                            <input type="text" id="signupName" required>
+                            <span class="error-msg" id="signupNameError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupEmail">Email</label>
+                            <input type="email" id="signupEmail" required>
+                            <span class="error-msg" id="signupEmailError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupPassword">Password</label>
+                            <input type="password" id="signupPassword" required>
+                            <span class="error-msg" id="signupPasswordError"></span>
+                        </div>
+                        <div id="signupFormGeneralError" class="error-banner hidden"></div>
+                        <button type="submit" class="btn btn-primary width-100">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="browseSection" class="view-section hidden">
+            <div class="deals-banner-section" id="browseDealsContainer"></div>
+
+            <div class="browser-layout">
+                <aside class="filters-sidebar">
+                    <h3>Filters</h3>
+                    <div class="filter-group">
+                        <label for="categoryFilter">Category</label>
+                        <select id="categoryFilter">
+                            <option value="all">All Folders / Categories</option>
+                            <option value="Kids Special">Kids Special</option>
+                            <option value="Fiction">Fiction</option>
+                            <option value="Non Fiction">Non Fiction</option>
+                            <option value="Biography">Biography</option>
+                            <option value="Harry Potter">Harry Potter</option>
+                            <option value="History">History</option>
+                            <option value="Islamic">Islamic</option>
+                            <option value="Mystery">Mystery</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="priceSort">Price Filter</label>
+                        <select id="priceSort">
+                            <option value="default">Default</option>
+                            <option value="low-high">Low to High</option>
+                            <option value="high-low">High to Low</option>
+                        </select>
+                    </div>
+                </aside>
+
+                <div class="catalog-area">
+                    <h2>Available Books</h2>
+                    <div id="fetchLoadingState" class="loading-spinner hidden">Loading books from database...</div>
+                    <div id="fetchErrorState" class="error-banner hidden">Could not load books. Is JSON Server running?</div>
+                    <div class="books-grid" id="booksGrid"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cartSection" class="view-section hidden">
+            <h2>Your Cart</h2>
+            <div class="cart-layout">
+                <div class="cart-items-list" id="cartItemsContainer"></div>
+                <div class="cart-summary-card">
+                    <h3>Summary</h3>
+                    <p>Subtotal: <span id="subtotalAmount">$0.00</span></p>
+                    <button id="proceedToCheckoutBtn" class="btn btn-primary width-100 mt-10">Proceed to Order</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="checkoutSection" class="view-section hidden">
+            <h2>Proceed to Order</h2>
+            <form id="checkoutForm" novalidate>
+                <div class="checkout-grid">
+                    <div class="billing-details-box">
+                        <h3>User Details</h3>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" id="custName" required>
+                            <span class="error-msg" id="custNameError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="custEmail" required>
+                            <span class="error-msg" id="custEmailError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="text" id="custAddress" required>
+                            <span class="error-msg" id="custAddressError"></span>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input type="text" id="custCity" required>
+                                <span class="error-msg" id="custCityError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Postal Code</label>
+                                <input type="text" id="custPostal" required>
+                                <span class="error-msg" id="custPostalError"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-summary-box">
+                        <h3>Payment Method</h3>
+                        <div class="radio-group">
+                            <label><input type="radio" name="paymentMethod" value="COD" checked> Cash on Delivery</label>
+                            <label><input type="radio" name="paymentMethod" value="Debit Card"> Debit Card</label>
+                        </div>
+                        
+                        <div id="cardDetailsContainer" class="hidden">
+                            <div class="form-group">
+                                <label>Card Number</label>
+                                <input type="text" id="cardNum" placeholder="XXXX-XXXX-XXXX-XXXX">
+                                <span class="error-msg" id="cardNumError"></span>
+                            </div>
+                        </div>
+
+                        <hr>
+                        <h3>Order Total</h3>
+                        <div class="price-row"><p>Items:</p><span id="checkSub">$0.00</span></div>
+                        <div class="price-row"><p>Shipping fee:</p><span id="checkShipping">$5.00</span></div>
+                        <div class="price-row total-highlight"><p>Total Amount:</p><span id="checkTotal">$0.00</span></div>
+                        <div id="checkoutSuccessMessage" class="success-banner hidden">Order Confirmed Successfully!</div>
+                        <button type="submit" class="btn btn-success width-100 mt-20">Confirm Order</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <!-- UPDATED Help & Requests Section with dynamic fields for each issue type -->
+        <section id="requestsSection" class="view-section hidden">
+            <div class="request-container">
+                <h2>Help & Requests</h2>
+                <form id="complaintRequestForm" novalidate>
+                    <div class="form-group">
+                        <label>Form Type</label>
+                        <select id="reqType">
+                            <option value="Missing Book">Request a Book</option>
+                            <option value="Delivery Issue">Delivery Issue</option>
+                            <option value="Wrong Book">Wrong Book Delivered</option>
+                        </select>
+                    </div>
+
+                    <!-- Base fields always visible -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <input type="text" id="reqUserName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>User Email</label>
+                            <input type="email" id="reqUserEmail" required>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic fields container -->
+                    <div id="dynamicRequestFields"></div>
+
+                    <!-- Author field is common but may appear in multiple contexts; conditionally managed -->
+                    <div id="requestSuccessMessage" class="success-banner hidden">Request submitted successfully!</div>
+                    <button type="submit" class="btn btn-primary">Submit Request</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div id="dealModal" class="deal-modal hidden" role="dialog" aria-modal="true" aria-labelledby="dealModalTitle">
+        <div class="deal-modal-card">
+            <button id="dealModalCloseBtn" class="deal-close-btn" type="button" aria-label="Close deal details">&times;</button>
+            <div class="deal-modal-content">
+                <img id="dealModalImage" src="images/logo.png" alt="Deal Image" class="deal-modal-image">
+                <div class="deal-modal-info">
+                    <h3 id="dealModalTitle"></h3>
+                    <p><strong>Discounted Price:</strong> <span id="dealModalDiscountedPrice"></span></p>
+                    <p><strong>Stock:</strong> <span id="dealModalStock"></span></p>
+                    <p><strong>Color:</strong> <span id="dealModalColor"></span></p>
+                    <p><strong>Size:</strong> <span id="dealModalSize"></span></p>
+                    <p><strong>Date Range:</strong> <span id="dealModalRange"></span></p>
+                        <button id="dealBuyNowBtn" type="button" class="btn btn-success mt-20">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
