@@ -6,6 +6,21 @@ let authenticatedUser = null;
 let activeDeals = [];
 let selectedDealForCheckout = null;
 
+function setInlineMessage(elementId, message, type = 'error') {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    element.textContent = message;
+    element.classList.remove('hidden', 'success-banner', 'error-banner');
+    element.classList.add(type === 'success' ? 'success-banner' : 'error-banner');
+}
+
+function clearInlineMessage(elementId) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    element.textContent = '';
+    element.classList.add('hidden');
+}
+
 function parseDealDate(dateValue, endOfDay = false) {
     if (!dateValue) return null;
     const parsed = new Date(`${dateValue}T${endOfDay ? '23:59:59' : '00:00:00'}`);
@@ -260,7 +275,7 @@ async function fetchLoadDeals() {
             activeDeals = deals.filter(isDealInActiveRange);
             renderDealBanners();
         }
-    } catch (e) { console.error(e); }
+    } catch (e) {}
 }
 
 function renderDealBanners() {
@@ -547,17 +562,17 @@ function initCartCheckout() {
             if (res.ok) {
                 shoppingCart = [];
                 updateCartBadge();
-                
-                const successMsg = document.getElementById('checkoutSuccessMessage');
-                successMsg.classList.remove('hidden');
+                setInlineMessage('checkoutSuccessMessage', 'Order Confirmed Successfully!', 'success');
                 
                 setTimeout(() => {
-                    successMsg.classList.add('hidden');
+                    document.getElementById('checkoutSuccessMessage').classList.add('hidden');
                     checkoutForm.reset();
                     switchView('browseSection');
                 }, 3000);
             }
-        } catch (err) { console.error(err); }
+        } catch (err) {
+            setInlineMessage('checkoutSuccessMessage', 'Could not place the order. Please make sure JSON Server is running.');
+        }
     });
 }
 
@@ -733,12 +748,13 @@ function initRequestForm() {
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        clearInlineMessage('requestSuccessMessage');
 
         let payload;
         try {
             payload = buildRequestPayload();
         } catch (err) {
-            alert(err.message);
+            setInlineMessage('requestSuccessMessage', err.message);
             return;
         }
         
@@ -749,14 +765,18 @@ function initRequestForm() {
                 body: JSON.stringify(payload)
             });
             if (res.ok) {
-                document.getElementById('requestSuccessMessage').classList.remove('hidden');
+                setInlineMessage('requestSuccessMessage', 'Request submitted successfully!', 'success');
                 setTimeout(() => {
                     document.getElementById('requestSuccessMessage').classList.add('hidden');
                     form.reset();
                     populateRequestIdentity();
                     renderDynamicFields();
                 }, 3000);
+            } else {
+                setInlineMessage('requestSuccessMessage', 'Could not submit your request. Please try again.');
             }
-        } catch (err) { console.error(err); }
+        } catch (err) {
+            setInlineMessage('requestSuccessMessage', 'Could not submit your request. Please make sure JSON Server is running.');
+        }
     });
 }

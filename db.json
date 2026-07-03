@@ -476,7 +476,8 @@
       "image": "images/History/A Brief History Of Time.jpg",
       "fromDate": "2026-06-14",
       "toDate": "2026-06-20",
-      "id": "6jqQ8UnNcks"
+      "id": "6jqQ8UnNcks",
+      "isActive": false
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

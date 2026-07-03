@@ -2,6 +2,18 @@ const API_URL = 'http://localhost:3000';
 
 let isEditingMode = false;
 
+function setInlineMessage(elementId, message, type = 'error') {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    element.textContent = message;
+    element.classList.remove('hidden', 'success-banner', 'error-banner');
+    element.classList.add(type === 'success' ? 'success-banner' : 'error-banner');
+}
+
+function showAdminAction(message, type = 'success') {
+    setInlineMessage('adminActionMessage', message, type);
+}
+
 function parseDealDate(dateValue, endOfDay = false) {
     if (!dateValue) return null;
     const parsed = new Date(`${dateValue}T${endOfDay ? '23:59:59' : '00:00:00'}`);
@@ -27,7 +39,9 @@ async function markExpiredDealsInactive() {
                 body: JSON.stringify({ isActive: false })
             })
         )));
-    } catch (e) { console.error(e); }
+    } catch (e) {
+        showAdminAction('Could not refresh expired deals. Please make sure JSON Server is running.', 'error');
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -131,7 +145,9 @@ async function loadStatsOverview() {
             document.getElementById('statOrders').textContent = o.length;
             document.getElementById('statRequests').textContent = r.filter(i => i.status === 'Pending').length;
         }
-    } catch(e) { console.error(e); }
+    } catch(e) {
+        showAdminAction('Could not load dashboard stats. Please make sure JSON Server is running.', 'error');
+    }
 }
 
 // Book Inventory CRUD Operations Engine
@@ -159,7 +175,9 @@ async function loadInventoryTable() {
             `;
             tbody.appendChild(tr);
         });
-    } catch (e) { console.error(e); }
+    } catch (e) {
+        showAdminAction('Could not load inventory records.', 'error');
+    }
 }
 
 function initBookFormSubmit() {
@@ -198,8 +216,13 @@ function initBookFormSubmit() {
                 form.reset();
                 resetFormState();
                 loadInventoryTable();
+                showAdminAction('Inventory record saved successfully.', 'success');
+            } else {
+                showAdminAction('Could not save inventory record.', 'error');
             }
-        } catch (err) { console.error(err); }
+        } catch (err) {
+            showAdminAction('Could not save inventory record. Please make sure JSON Server is running.', 'error');
+        }
     });
 
     document.getElementById('cancelEditBtn').addEventListener('click', resetFormState);
@@ -225,15 +248,22 @@ window.prepareEditBook = async function(id) {
             document.getElementById('cancelEditBtn').classList.remove('hidden');
             isEditingMode = true;
         }
-    } catch(e) { console.error(e); }
+    } catch(e) {
+        showAdminAction('Could not load this book for editing.', 'error');
+    }
 };
 
 window.deleteBookItem = async function(id) {
-    if (confirm("Confirm database asset deletion? The item will be permanently removed.")) {
-        try {
-            const res = await fetch(`${API_URL}/books/${id}`, { method: 'DELETE' });
-            if (res.ok) loadInventoryTable();
-        } catch (e) { console.error(e); }
+    try {
+        const res = await fetch(`${API_URL}/books/${id}`, { method: 'DELETE' });
+        if (res.ok) {
+            loadInventoryTable();
+            showAdminAction('Book deleted successfully.', 'success');
+        } else {
+            showAdminAction('Could not delete this book.', 'error');
+        }
+    } catch (e) {
+        showAdminAction('Could not delete this book. Please make sure JSON Server is running.', 'error');
     }
 };
 
@@ -271,7 +301,9 @@ async function loadOrdersTable() {
                 tbody.appendChild(tr);
             });
         }
-    } catch (e) { console.error(e); }
+    } catch (e) {
+        showAdminAction('Could not load order records.', 'error');
+    }
 }
 
 window.confirmUserOrder = async function(id) {
@@ -281,8 +313,15 @@ window.confirmUserOrder = async function(id) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ status: 'Confirmed' })
         });
-        if (res.ok) loadOrdersTable();
-    } catch(e) { console.error(e); }
+        if (res.ok) {
+            loadOrdersTable();
+            showAdminAction('Order marked as confirmed.', 'success');
+        } else {
+            showAdminAction('Could not update this order.', 'error');
+        }
+    } catch(e) {
+        showAdminAction('Could not update this order. Please make sure JSON Server is running.', 'error');
+    }
 };
 
 // Help Requests & Customer Complaints Tracking Center Operations
@@ -359,24 +398,29 @@ async function loadRequestsTable() {
                 tbody.appendChild(tr);
             });
         }
-    } catch(e) { console.error(e); }
+    } catch(e) {
+        showAdminAction('Could not load help and request records.', 'error');
+    }
 }
 
 window.updateRequestState = async function(id, nextState) {
     try {
         if (nextState === 'Deleted') {
-            if (confirm("Purge ticket entry data from records?")) {
-                await fetch(`${API_URL}/requests/${id}`, { method: 'DELETE' });
-            }
+            await fetch(`${API_URL}/requests/${id}`, { method: 'DELETE' });
+            showAdminAction('Request deleted successfully.', 'success');
         } else {
-            await fetch(`${API_URL}/requests/${id}`, {
+            const res = await fetch(`${API_URL}/requests/${id}`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status: nextState })
             });
+            if (res.ok) showAdminAction(`Request status updated to ${nextState}.`, 'success');
+            else showAdminAction('Could not update this request.', 'error');
         }
         loadRequestsTable();
-    } catch (e) { console.error(e); }
+    } catch (e) {
+        showAdminAction('Could not update this request. Please make sure JSON Server is running.', 'error');
+    }
 };
 
 // Special Promotional Deals Publishing Module Operations
@@ -395,19 +439,19 @@ function initDealSubmit() {
         const toDate = document.getElementById('dealToDate').value;
 
         if (!dealName || !productName || Number.isNaN(discountedPrice) || Number.isNaN(stock) || !color || !size || !image || !fromDate || !toDate) {
-            alert('Please fill all deal fields.');
+            setInlineMessage('dealFormMessage', 'Please fill all deal fields.');
             return;
         }
 
         const startDate = parseDealDate(fromDate);
         const endDate = parseDealDate(toDate, true);
         if (!startDate || !endDate || startDate > endDate) {
-            alert('From date cannot be after To date.');
+            setInlineMessage('dealFormMessage', 'From date cannot be after To date.');
             return;
         }
 
         if (endDate < new Date()) {
-            alert('This deal has already expired. Please choose a future end date.');
+            setInlineMessage('dealFormMessage', 'This deal has already expired. Please choose a future end date.');
             return;
         }
 
@@ -420,8 +464,12 @@ function initDealSubmit() {
             });
             if (res.ok) {
                 form.reset();
-                alert("Special Deal deployed to the customer display front page! 🎉");
+                setInlineMessage('dealFormMessage', 'Special deal deployed to the customer display front page!', 'success');
+            } else {
+                setInlineMessage('dealFormMessage', 'Could not publish this deal.');
             }
-        } catch (err) { console.error(err); }
+        } catch (err) {
+            setInlineMessage('dealFormMessage', 'Could not publish this deal. Please make sure JSON Server is running.');
+        }
     });
 }
