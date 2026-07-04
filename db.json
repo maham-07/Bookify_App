@@ -317,6 +317,12 @@
       "email": "mahamashraf739@gmail.com",
       "password": "123456",
       "id": "TZy_z8ynV8k"
+    },
+    {
+      "name": "Hira",
+      "email": "hiraashraf3152@gmail.com",
+      "password": "123456",
+      "id": "BXZQ-FiQAtc"
     }
   ],
   "orders": [
@@ -420,6 +426,102 @@
       "totalCost": 39,
       "status": "Pending",
       "id": "16YvcWDZ0G4"
+    },
+    {
+      "customerName": "Hira",
+      "customerEmail": "hiraashraf3152@gmail.com",
+      "address": "Islamia University Bahawalpur, Baghdad Campus Girls Hostel Haleema Hall",
+      "city": "Bahawalpur",
+      "postalCode": "63100",
+      "paymentMethod": "COD",
+      "items": [
+        {
+          "bookId": "hp-6",
+          "title": "Harry Potter And The Half-blood Prince",
+          "price": 24,
+          "image": "images/Harry Potter/Harry Potter And The Half-blood Prince.jpg",
+          "qty": 1
+        },
+        {
+          "bookId": "hist-1",
+          "title": "A Brief History Of Time",
+          "price": 15.5,
+          "image": "images/History/A Brief History Of Time.jpg",
+          "qty": 1
+        },
+        {
+          "bookId": "kids-1",
+          "title": "Monkey Puzzle",
+          "price": 8.99,
+          "image": "images/Kids Special/Monkey Puzzle.jpg",
+          "qty": 1
+        },
+        {
+          "bookId": "mys-1",
+          "title": "The Thirty-One Doors",
+          "price": 14.5,
+          "image": "images/Mystery/The Thirty-One Doors.jpg",
+          "qty": 1
+        },
+        {
+          "bookId": "nf-4",
+          "title": "The Little Book Of Hygge",
+          "price": 14.99,
+          "image": "images/Non Fiction/The Little Book Of Hygge.jpg",
+          "qty": 1
+        }
+      ],
+      "totalCost": 82.98,
+      "status": "Pending",
+      "id": "X58xBpr73qc"
+    },
+    {
+      "customerName": "Hira",
+      "customerEmail": "hiraashraf3152@gmail.com",
+      "address": "Islamia University Bahawalpur, Baghdad Campus Girls Hostel Haleema Hall",
+      "city": "Bahawalpur",
+      "postalCode": "63100",
+      "paymentMethod": "COD",
+      "items": [
+        {
+          "bookId": "hp-6",
+          "title": "Harry Potter And The Half-blood Prince",
+          "price": 24,
+          "image": "images/Harry Potter/Harry Potter And The Half-blood Prince.jpg",
+          "qty": 1
+        },
+        {
+          "bookId": "hist-1",
+          "title": "A Brief History Of Time",
+          "price": 15.5,
+          "image": "images/History/A Brief History Of Time.jpg",
+          "qty": 1
+        },
+        {
+          "bookId": "kids-1",
+          "title": "Monkey Puzzle",
+          "price": 8.99,
+          "image": "images/Kids Special/Monkey Puzzle.jpg",
+          "qty": 1
+        },
+        {
+          "bookId": "mys-1",
+          "title": "The Thirty-One Doors",
+          "price": 14.5,
+          "image": "images/Mystery/The Thirty-One Doors.jpg",
+          "qty": 1
+        },
+        {
+          "bookId": "nf-4",
+          "title": "The Little Book Of Hygge",
+          "price": 14.99,
+          "image": "images/Non Fiction/The Little Book Of Hygge.jpg",
+          "qty": 1
+        }
+      ],
+      "totalCost": 82.98,
+      "status": "Pending",
+      "id": "c0JM1FOochM"
     }
   ],
   "requests": [
@@ -478,6 +580,19 @@
       "toDate": "2026-06-20",
       "id": "6jqQ8UnNcks",
       "isActive": false
+    },
+    {
+      "dealName": "Vacation Reads Deal",
+      "productName": "Anne Of Green Gables",
+      "discountedPrice": 7,
+      "stock": 5,
+      "color": "Green",
+      "size": "Standard",
+      "image": "images/Fiction/Anne Of Green Gables.jpg",
+      "fromDate": "2026-07-03",
+      "toDate": "2026-07-31",
+      "isActive": true,
+      "id": "Rme2Ib4qIpk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
